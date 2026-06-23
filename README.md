@@ -13,7 +13,10 @@ By utilizing Presigned URLs and direct-to-cloud capabilities, the system complet
 This project is structured as a Monorepo, containing three independent workspaces. The core architecture strictly adheres to **DRY, KISS, and YAGNI** principles, ensuring high maintainability.
 
 * **`/backend`**: The core API and data processing factory (Node.js, Express, MongoDB). *Features centralized error handling, modular services, and background jobs.*
-* ## 📂 Project Structure
+* **`/web`**: The Pro Workspace tailored for desktop users (React / Vite + Bootstrap) - *[In Progress]*
+* **`/mobile`**: The "On-the-go" application for immediate mobile uploads (React Native) - *[Planned]*
+  
+  * ## 📂 Project Structure
 
 ```text
 Automated-Content-Creator-Hub/
@@ -35,9 +38,6 @@ Automated-Content-Creator-Hub/
 │
 └── mobile/                   # On-the-go App for Creators (React Native) [Planned]
     └── (To be initialized)
-* **`/web`**: The Pro Workspace tailored for desktop users (React / Vite + Bootstrap) - *[In Progress]*
-* **`/mobile`**: The "On-the-go" application for immediate mobile uploads (React Native) - *[Planned]*
-  
 
 ## 💻 Tech Stack
 
