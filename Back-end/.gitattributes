@@ -1,0 +1,21 @@
+# .gitattributes
+# Chuẩn hóa line ending cho toàn bộ dự án.
+# Mọi file text sẽ được lưu với LF trên Git remote (chuẩn Unix/Linux).
+# Git sẽ tự xử lý việc convert phù hợp cho từng OS.
+
+# Mặc định: tất cả file text dùng LF
+* text=auto eol=lf
+
+# JavaScript / JSON / Config
+*.js    text eol=lf
+*.json  text eol=lf
+*.env   text eol=lf
+
+# Markdown và docs
+*.md    text eol=lf
+
+# Binary files — không được động vào
+*.png   binary
+*.jpg   binary
+*.mp4   binary
+*.pdf   binary
