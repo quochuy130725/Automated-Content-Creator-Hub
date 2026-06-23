@@ -1,6 +1,7 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
+const errorHandler = require('./middleware/errorHandler');
 
 // Load các biến môi trường từ file .env
 dotenv.config();
@@ -13,19 +14,18 @@ const app = express();
 // Middleware để Express hiểu định dạng JSON trong Request Body
 app.use(express.json());
 
-// Khai báo các Routes
-const videoRoutes = require('./routes/video.routes');
+// Khai báo và gắn Routes
+app.use('/api/videos', require('./routes/video.routes'));
 
-// Gắn Routes vào path /api/videos
-app.use('/api/videos', videoRoutes);
-
-// Endpoint mặc định để test server
+// Endpoint mặc định để kiểm tra server
 app.get('/', (req, res) => {
-    res.send('Automated Content Creator Hub API is running...');
+    res.json({ success: true, message: 'Automated Content Creator Hub API is running...' });
 });
 
-const PORT = process.env.PORT || 5000;
+// Gắn Centralized Error Handler — PHẢI đặt CUỐI CÙNG, sau tất cả routes
+app.use(errorHandler);
 
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server is running at port ${PORT}`);
 });
